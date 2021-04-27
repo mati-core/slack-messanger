@@ -20,8 +20,9 @@ class ActionSection implements MessageSection
 	 * @param string $label
 	 * @param string $value
 	 * @param string|null $url
+	 * @return $this
 	 */
-	public function addButton(string $label, string $value, string $url = null)
+	public function addButton(string $label, string $value, string $url = null): self
 	{
 		$button = [
 			'type' => 'button',
@@ -39,10 +40,12 @@ class ActionSection implements MessageSection
 		}
 
 		$this->actions[] = $button;
+
+		return $this;
 	}
 
 	/**
-	 * @return string[]
+	 * @return array
 	 */
 	public function buildSection(): array
 	{

@@ -56,7 +56,7 @@ final class *Presenter extends BasePresenter
 }
 ```
 
-All object are from namespace
+_All object are from namespace_
 ```text
 \MatiCore\SlackMessenger
 ```
@@ -87,6 +87,7 @@ try{
     // Send message error
 }
 ```
+
 
 **Section list**
 

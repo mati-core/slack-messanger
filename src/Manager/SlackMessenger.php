@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MatiCore\SlackMessenger;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
@@ -35,12 +36,12 @@ class SlackMessenger
 	 */
 	public function sendMessage(Message $message): void
 	{
-		if (!isset($this->config['hook']) || $this->config['hook'] === null) {
+		if (!isset($this->config['hook']) || (string) $this->config['hook'] === '') {
 			throw new SlackMessengerException('Slack webhook url not set! Follow configuration in readme!');
 		}
 
 		try {
-			$client = new \GuzzleHttp\Client();
+			$client = new Client();
 			$response = $client->request('POST', $this->config['hook'], [
 				'body' => $message->buildMessage(),
 			]);
