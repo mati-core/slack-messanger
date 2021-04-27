@@ -1,0 +1,2 @@
+services:
+	- MatiCore\SlackMessenger\SlackMessenger
