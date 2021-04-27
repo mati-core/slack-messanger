@@ -1,2 +1,5 @@
+parameters:
+	slack:
+		hook: null
 services:
-	- MatiCore\SlackMessenger\SlackMessenger
+	- MatiCore\SlackMessenger\SlackMessenger(%slack%)
